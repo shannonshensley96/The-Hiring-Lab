@@ -8,7 +8,8 @@ const BASE_URL = '/api/users/';
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
-    body: user
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(user)
   })
   .then(res => {
     if (res.ok) return res.json();
@@ -44,11 +45,21 @@ function login(creds) {
   })
   .then(({token}) => tokenService.setToken(token));
 }
-
+function getProfile(username){
+  return fetch(BASE_URL + username, {
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  }).then(res => {
+    if(res.ok) return res.json();
+    throw new Error('Bad Credentials')
+  })
+}
 
 export default {
   signup, 
-  // logout,
+  getUser,
+  logout,
   login,
-  getUser
+  getProfile
 };

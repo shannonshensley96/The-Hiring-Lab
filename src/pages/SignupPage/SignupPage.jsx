@@ -47,7 +47,21 @@ export default function SignUpPage(props){
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
                 <Form autoComplete="off"  onSubmit={handleSubmit}>
-                <Segment stacked>               
+                <Segment stacked>  
+                    <Form.Input                    
+                      name="firstName"
+                      placeholder="firstname"
+                      value={state.firstName}
+                      onChange={handleChange}
+                      required
+                    />   
+                    <Form.Input                    
+                      name="lastName"
+                      placeholder="lastName"
+                      value={state.lastName}
+                      onChange={handleChange}
+                      required
+                    />          
                     <Form.Input                    
                       name="username"
                       placeholder="username"
