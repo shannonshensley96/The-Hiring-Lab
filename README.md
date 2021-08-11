@@ -18,7 +18,7 @@ As my final project for SEI I decided to try my hand at using an API. I used the
 * Mongoose 
 
 ## Getting Started 
-Check out The Hiring Lab here: [The Hiring Lab][heroku link goes here]
+Check out The Hiring Lab here: [The Hiring Lab](https://the-hiring-lab.herokuapp.com/)
 
 The Trello Board used for this app: [The Hiring Lab Trello Board](https://trello.com/b/o6bIdvJJ/project-4-final-project)
 
