@@ -8,7 +8,7 @@ import MyProfile from '../MyProfile/MyProfile';
 import userService from '../../utils/userService';
 
 
-function App() {
+export default function App() {
 
   
   const [user, setUser] = useState(userService.getUser()) 
@@ -51,6 +51,5 @@ function App() {
   );
 }
 
-export default App;
 
-
+}
