@@ -15,7 +15,7 @@ export default function App() {
 
   function handleSignUpOrLogin(){
     setUser(userService.getUser()); 
-
+  }
   function handleLogout(){
     userService.logout();
     setUser({user: null})
@@ -49,7 +49,7 @@ export default function App() {
       </Switch>
     </div>
   );
-}
+
 
 
 }
