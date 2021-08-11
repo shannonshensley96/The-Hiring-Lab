@@ -3,7 +3,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import userService from '../../utils/userService';
 import { useHistory } from 'react-router-dom';
-
+import "./SignupPage.css"
 
 export default function SignUpPage(props){
     

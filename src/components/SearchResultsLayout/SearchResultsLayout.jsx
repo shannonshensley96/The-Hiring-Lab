@@ -41,7 +41,7 @@ export default function SearchResultsLayout(results){
            <h4>{results.job.category.label}</h4>
            <h4>{results.job.location.display_name}</h4>  
            <p>{results.job.description}</p> 
-         <button onClick={handleClick}>Book Mark this Job</button>
+         <button onClick={handleClick} class="bookmark_button">Book Mark</button>
         </div>
     )
  }

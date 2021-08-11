@@ -8,7 +8,7 @@ import './MyProfile.css';
 export default function ProfilePage({ user, handleLogout}){
 
   return (
-      <>
+      <body class='myprofile'>
     <Header />
     <Grid textAlign='center' columns={2} class="profile">
         <Grid.Row>
@@ -32,6 +32,6 @@ export default function ProfilePage({ user, handleLogout}){
         <h2>Book Marked Jobs:</h2>
     </div>
     
-    </>
+    </body>
   )
 }

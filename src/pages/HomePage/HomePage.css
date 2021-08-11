@@ -1,14 +1,30 @@
-
+.home-body{
+    display:flex;
+    flex-direction: column;
+}
+.background{
+    background-image: url('Images/background.png');
+   
+   
+}
+.nav{
+    background-color:rgba(245, 241, 241, 0.45);
+    
+}
 ul{
-    margin-top: 10%;
+    margin-top: 2%;
     list-style: none;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+   
 }
 h1{
-    margin-top: 5%;
+    color: #9FEDD7;
+    margin-top: 9%;
     font-size: 120px;
+    margin-bottom: 8%;
 
 }
 form{
@@ -19,8 +35,39 @@ form{
     margin-top: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 
+}
+.search_icon{
+    margin-left: 20%;
+    background-image: url('Images/search_icon.png');
+    height: 200px;
+    background-repeat: no-repeat;
+   
+}
+.bookmark_icon{
+    margin-left: 20%;
+    background-image: url('Images/bookmark_icon.png');
+    height: 190px;
+    background-repeat: no-repeat;
+}
+.icon_text{
+    font-size: 24px;
+    color:#026670;
+}
+.hiring-lab{
+    color:#026670;
+    font-size: 40px;
+}
+.logout{
+ font-size: 30px;
+ color: #FCE181;
+ text-shadow:3px 8px 10px rbga(235, 206, 103, 0.95) ;
+}
+.profile{
+ font-size:20px ;
+ color:#9FEDD7;
 }
 
 .searchResults{
@@ -28,5 +75,33 @@ form{
     width: 80%;
     margin-top: 2%;
     margin-bottom: 2%;
-   background-color: rgb(247, 246, 241);
+    background-color: rgb(255, 255, 254);
+  
+}
+.find-btn{
+ margin-left: 5px;
+ background-color: #FCE181; 
+ height: 59px; 
+ width:89px; 
+ border: 0ch; 
+ color:white;
+ font-size: 18px;
+}
+
+.search{
+    margin-left: 3px;
+    border-color: #026670;
+    height:60px;
+    margin-bottom: 2%;
+}
+.bookmark_button{
+    font-weight: 900;
+    color: white;
+    background-color:#9FEDD7 ;
+    border: 0ch;
+    height: 34px;
+    width: 90px;
+    border-radius:10% ;
+
+
 }

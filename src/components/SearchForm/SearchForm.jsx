@@ -31,9 +31,9 @@ export default function SearchForm(props){
    
     return(
         <form autoComplete="off" onSubmit={handleSubmit}>
-        <input name="jobTitle" placeholder="Job Title" value={state.jobTitle}  onChange={handleInput}/>
-        <input name="location" placeholder="Location" value={state.location}  onChange={handleInput}/>
-        <button type="submit">Find</button>
+        <input class='search' name="jobTitle" placeholder="...Job Title" value={state.jobTitle}  onChange={handleInput}/>
+        <input class='search' name="location" placeholder="...Location" value={state.location}  onChange={handleInput}/>
+        <button class='find-btn' type="submit">FIND</button>
         </form>
     )
 }

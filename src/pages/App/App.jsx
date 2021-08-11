@@ -26,22 +26,34 @@ function App() {
    
   return (
     <div className="App">
-        <Switch>
-              <Route exact path="/">
-                  <HomePage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-              </Route>
-              <Route exact path="/signup">
-                <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-              </Route>
-              <Route exact path="/:username">
-                  <MyProfile user={user} handleLogout={handleLogout}/>
-              </Route>
-        </Switch>
-    </div> 
+      <Switch>
+          <Route exact path="/login">
+             <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          <Route exact path="/signup">
+             <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          {userService.getUser() ? 
+            <> 
+             <Switch>
+                <Route exact path="/">
+                    <HomePage user={user}  handleLogout={handleLogout} />
+                </Route>
+                <Route exact path="/:username">
+                    <MyProfile user={user} handleLogout={handleLogout}/>
+                </Route>
+                  
+             </Switch>
+            </>
+            :
+            <Redirect to='/login'/>
+          }
+  
+      </Switch>
+    </div>
   );
 }
 
 export default App;
+
+

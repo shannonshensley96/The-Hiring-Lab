@@ -7,7 +7,7 @@ import SearchResults from "../../components/SearchResults/SearchResults";
 
 
 
-export default function HomePage() {
+export default function HomePage({handleLogout}) {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [jobTitle, setJobTitle] = useState("");
@@ -36,10 +36,12 @@ export default function HomePage() {
   }, [jobTitle, location]);
 
   return (
-    <body>
-      <Header />
+    <body class='home-body' >
+      <div class='background'>
+      <Header  handleLogout={handleLogout} />
       <h1>...Your Perfect Job is Waiting</h1>
       <SearchForm handleFormSubmit={handleFormSubmit} />
+      </div>
       {loading ? null : <SearchResults jobs={searchResults} /> } 
       <Icons />
     </body>

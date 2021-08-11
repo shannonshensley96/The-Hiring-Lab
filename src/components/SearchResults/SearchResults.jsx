@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import SearchResultsLayout from '../SearchResultsLayout/SearchResultsLayout';
-import * as bookMarkAPI from '../../utils/bookmark'
+
 
 export default function SearchResults ({jobs,searchResults}){
   
-    async function handleAddBookMark(bookMark){
-        const data = await bookMarkAPI.create(bookMark)
-        console.log(data)
-    }
+  
 
   
     return(
@@ -20,7 +17,7 @@ export default function SearchResults ({jobs,searchResults}){
 
                     <SearchResultsLayout  
                     job={job}
-                    id = {job.id}
+                
                     />
                     </>
                   );
