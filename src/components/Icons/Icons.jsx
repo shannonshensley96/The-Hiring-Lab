@@ -10,12 +10,9 @@ export default function Icons(){
                </section>
                <section>
                     <img class='apply' src=""/>
-                    <p>Easily apply and keep track of all the jobs you've applied to</p>
+                    <p>Easily bookmark and keep track of all the jobs you're interested in</p>
                </section>
-               <section>
-                    <img class='job_post' src=""/>
-                    <p>Post a job listing to find your perfect candidate</p>
-                </section>
+              
         </div>        
     )
 }

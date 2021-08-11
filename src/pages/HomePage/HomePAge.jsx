@@ -1,51 +1,47 @@
-import React from 'react';
-import './HomePage.css';
-import SearchForm from '../../components/SearchForm/SearchForm';
-import Header from '../../components/PageHeader/PageHeader';
-import Icons from '../../components/Icons/Icons';
+import React, { useState, useEffect } from "react";
+import "./HomePage.css";
+import SearchForm from "../../components/SearchForm/SearchForm";
+import Header from "../../components/PageHeader/PageHeader";
+import Icons from "../../components/Icons/Icons";
+import SearchResults from "../../components/SearchResults/SearchResults";
+
+
 
 export default function HomePage() {
-    const [searchResults, setSearchResults]= useState('')
-    const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
-    // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
-    // this  const token = createJWT(user); // where user was the document we created from mongo
-  
-    
-    function handleFormSubmit(results){
-        setSearchResults(results)
-      }
-    
-      useEffect(() => {
-  
-  
-        var searchURl = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=3c28107a&app_key=b350f92eaecc52697e668c777ba06f6b&results_per_page=20&sort_dir=down&sort_by=relevance`
-            
-        const makeApiCall = () => {
-          fetch("https://baskarm28-adzuna-v1.p.rapidapi.com/jobs/%7Bus%7D/search/1?app_key=3c28107a&app_key=3c28107a&app_id=b350f92eaecc52697e668c777ba06f6b&app_id=b350f92eaecc52697e668c777ba06f6b&results_per_page=20&location0=location0%3DUK%26location1%3DSouth%20East%20England%26location2%3DSurrey", {
-            "method": "GET",
-            "headers": {
-              "x-rapidapi-key": "SIGN-UP-FOR-KEY",
-              "x-rapidapi-host": "baskarm28-adzuna-v1.p.rapidapi.com"
-            }
-          })
-          .then(response => {
-            console.log(response);
-          })
-          .catch(err => {
-            console.error(err);
-          });
-        }
-        makeApiCall()
-  
-      },[])
-    
-   return (
-       <body>
-           <Header />
-           <h1>...Your Perfect Job is Waiting</h1>
-           <SearchForm handleFormSubmit={handleFormSubmit} />
-           <Icons />
-       </body>
-       
-   )
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [jobTitle, setJobTitle] = useState("");
+  const [location, setLocation] = useState("");
+
+  function handleFormSubmit(title, location) {
+    setJobTitle(title);
+    setLocation(location);
+  }
+
+  useEffect(() => {
+    console.log(jobTitle, location, "this is the jobtitle and location");
+
+    const searchURl = `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=3c28107a&app_key=b350f92eaecc52697e668c777ba06f6b&what_and=${jobTitle}&where=${location}&sort_by=relevance`;
+
+    const makeApiCall = () => {
+      fetch(searchURl)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("searchResults", data);
+          setSearchResults(data.results);
+         setLoading(false)
+     });
+    };
+    makeApiCall();
+  }, [jobTitle, location]);
+
+  return (
+    <body>
+      <Header />
+      <h1>...Your Perfect Job is Waiting</h1>
+      <SearchForm handleFormSubmit={handleFormSubmit} />
+      {loading ? null : <SearchResults jobs={searchResults} /> } 
+      <Icons />
+    </body>
+  );
 }

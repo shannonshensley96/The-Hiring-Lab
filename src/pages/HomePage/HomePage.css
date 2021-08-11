@@ -22,3 +22,11 @@ form{
     justify-content: space-evenly;
 
 }
+
+.searchResults{
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+   background-color: rgb(247, 246, 241);
+}

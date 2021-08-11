@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import userService from '../../utils/userService';
 import { useParams } from "react-router-dom";
 import {Grid,  Segment } from 'semantic-ui-react';
@@ -28,6 +28,9 @@ export default function ProfilePage({ user, handleLogout}){
             </Grid.Column>
         </Grid.Row>
     </Grid>
+    <div>
+        <h2>Book Marked Jobs:</h2>
+    </div>
     
     </>
   )
